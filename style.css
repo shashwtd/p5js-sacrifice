@@ -1,0 +1,210 @@
+  html, body {
+  margin: 0;
+  padding: 0;
+  background: #090909;
+  overflow: hidden;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+canvas {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+body {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  cursor: crosshair;
+}
+
+/* Game UI Overlay */
+.game-ui {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.game-ui.playing {
+  pointer-events: none !important;
+}
+
+.screen {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.screen.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+
+/* Menu Screen */
+.menu-container {
+  text-align: center;
+  color: white;
+  max-width: 500px;
+}
+
+.game-title {
+  font-family: 'Orbitron', monospace;
+  font-size: 4rem;
+  font-weight: 900;
+  margin: 0 0 1rem 0;
+  text-shadow: 0 0 20px rgba(100, 255, 218, 0.5);
+  color: rgb(100, 255, 218);
+}
+
+.game-subtitle {
+  font-size: 1.2rem;
+  margin: 0 0 2rem 0;
+  opacity: 0.9;
+}
+
+.controls-info {
+  margin: 2rem 0;
+}
+
+.controls-info p {
+  margin: 0.5rem 0;
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+
+.difficulty-selection h3 {
+  margin: 1rem 0;
+  font-size: 1.1rem;
+}
+
+.difficulty-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+.diff-btn {
+  background: transparent;
+  border: 2px solid rgba(150, 150, 150, 0.5);
+  color: white;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 80px;
+  font-family: inherit;
+  border-radius: 8px;
+}
+
+.diff-btn:hover {
+  border-color: rgb(100, 255, 218);
+  box-shadow: 0 0 15px rgba(100, 255, 218, 0.3);
+  transform: translateY(-2px);
+}
+
+.diff-btn.active {
+  border-color: rgb(100, 255, 218);
+  background: rgba(100, 255, 218, 0.1);
+  box-shadow: 0 0 20px rgba(100, 255, 218, 0.4);
+}
+
+.diff-btn .diamonds {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: rgb(255, 100, 100);
+}
+
+.diff-btn span {
+  display: block;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.start-button {
+  background: transparent;
+  border: 3px solid white;
+  color: white;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin: 2rem 0;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  font-family: 'Orbitron', monospace;
+  font-weight: 600;
+  text-transform: uppercase;
+  clip-path: polygon(15px 0%, 100% 0%, calc(100% - 15px) 100%, 0% 100%);
+}
+
+.start-button:hover {
+  border-color: rgb(100, 255, 218);
+  color: rgb(100, 255, 218);
+  box-shadow: 
+    0 0 25px rgba(100, 255, 218, 0.5),
+    inset 0 0 25px rgba(100, 255, 218, 0.1);
+  transform: translateY(-3px);
+}
+
+.start-button .arrow {
+  display: inline-block;
+  margin-right: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.start-button:hover .arrow {
+  transform: translateX(5px);
+}
+
+.high-score {
+  margin: 1.5rem 0;
+  color: rgb(100, 255, 218);
+  font-size: 0.9rem;
+}
+
+.sound-toggle {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+
+/* Game Over Screen */
+.gameover-container {
+  text-align: center;
+  color: white;
+  max-width: 400px;
+}
+
+.gameover-title {
+  font-family: 'Orbitron', monospace;
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0 0 2rem 0;
+  color: rgb(255, 50, 120);
+}
+
+.final-time {
+  font-size: 1.5rem;
+  margin: 1rem 0;
+  font-weight: 600;
+}

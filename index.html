@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Echo Orb</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script src="libraries/p5.min.js"></script>
+    <script src="libraries/p5.sound.min.js"></script>
+  </head>
+
+  <body oncontextmenu="return false;">
+    <!-- Game UI Overlay -->
+    <div id="game-ui" class="game-ui">
+      <!-- Menu Screen -->
+      <div id="menu-screen" class="screen active">
+        <div class="menu-container">
+          <h1 class="game-title">Echo Orb</h1>
+          <p class="game-subtitle">Sacrifice your past to survive the present</p>
+          
+          <div class="controls-info">
+            <p>Move Mouse - Control the Orb</p>
+            <p>Right-Click - Solidify your trail into a barrier</p>
+          </div>
+          
+          <div class="difficulty-selection">
+            <h3>Select Difficulty</h3>
+            <div class="difficulty-buttons">
+              <button class="diff-btn" data-difficulty="easy">
+                <div class="diamonds">◆</div>
+                <span>Easy</span>
+              </button>
+              <button class="diff-btn active" data-difficulty="medium">
+                <div class="diamonds">◆◆</div>
+                <span>Medium</span>
+              </button>
+              <button class="diff-btn" data-difficulty="hard">
+                <div class="diamonds">◆◆◆</div>
+                <span>Hard</span>
+              </button>
+            </div>
+          </div>
+          
+          <button id="start-btn" class="start-button">
+            <span class="arrow">▶</span>
+            <span class="text">START GAME</span>
+          </button>
+          
+          <div id="high-score" class="high-score"></div>
+          
+          <div class="sound-toggle">
+            Press 'M' to toggle sound
+          </div>
+        </div>
+      </div>
+      
+      <!-- Game Over Screen -->
+      <div id="gameover-screen" class="screen">
+        <div class="gameover-container">
+          <h2 class="gameover-title">Your Echo Fades</h2>
+          <div id="final-time" class="final-time"></div>
+          <div id="gameover-highscore" class="high-score"></div>
+          <button id="restart-btn" class="start-button">
+            <span class="arrow">▶</span>
+            <span class="text">PLAY AGAIN</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <script src="sketch.js"></script>
+  </body>
+</html>
